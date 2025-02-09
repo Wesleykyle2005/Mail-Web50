@@ -2,14 +2,69 @@
 {% load static %}
 
 {% block body %}
-    <h2>{{ request.user.email }}</h2>
+    
 
-    <button class="btn btn-sm btn-outline-primary" id="inbox">Inbox</button>
-    <button class="btn btn-sm btn-outline-primary" id="compose">Compose</button>
-    <button class="btn btn-sm btn-outline-primary" id="sent">Sent</button>
-    <button class="btn btn-sm btn-outline-primary" id="archived">Archived</button>
-    <a class="btn btn-sm btn-outline-primary" href="{% url 'logout' %}">Log Out</a>
-    <hr>
+<nav class="navbar bg-body-tertiary fixed-top bg-primary-subtle"> 
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      <a class="navbar-brand" href="#">{{request.user.email}}</a>
+      
+      <div class="offcanvas offcanvas-start w-25 bg-primary-subtle" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                    <button id="inbox" class="btn nav-button" data-bs-dismiss="offcanvas">Inbox</button>
+                </li>
+                <li class="nav-item">
+                    <button id="compose" class="btn nav-button" data-bs-dismiss="offcanvas">Compose</button>
+                </li>
+                <li class="nav-item">
+                    <button id="sent" class="btn nav-button" data-bs-dismiss="offcanvas">Sent</button>
+                </li>
+                <li class="nav-item">
+                    <button id="archived" class="btn nav-button" data-bs-dismiss="offcanvas">Archived</button>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'logout' %}" class="btn nav-button link-color">Log Out</a>
+                </li>
+            </ul>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container mt-5 pt-5">
 
     <div id="emails-view">
     </div>
@@ -30,10 +85,23 @@
             <div class="form-group">
                 <input class="form-control" id="compose-subject" placeholder="Subject">
             </div>
-            <textarea class="form-control" id="compose-body" placeholder="Body"></textarea>
+            <textarea  rows="10" class="form-control" id="compose-body" placeholder="Body"></textarea>
             <input type="submit" class="btn btn-primary"/>
         </form>
     </div>
+
+</div>
+
+
+
+    
+    
+    
+    
+    
+  
+
+   
 
     
 {% endblock %}

@@ -51,7 +51,7 @@ function load_mailbox(mailbox) {
         const emailBox = document.createElement('div');
         emailBox.className = 'emailBox';
         emailBox.innerHTML = `
-          <div class="card">
+          <div class="card ">
             <div class="card-body">
               <h5 class="card-title">${email.subject}</h5>
               <h6 class="card-subtitle">${email.recipients}</h6>
@@ -81,6 +81,8 @@ function load_mailbox(mailbox) {
             Archive_emails(email.id);
           }
         });
+
+        
 
         document.querySelector('#emails-view').append(emailBox);
       });

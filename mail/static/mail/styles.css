@@ -1,3 +1,45 @@
 textarea {
     min-height: 400px;
 }
+
+
+.nav-button {
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 10px;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 0;
+    margin-left: 40px;
+}
+
+.nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Color de fondo al hacer hover */
+    color: #000000; /* Color del texto al hacer hover */
+    text-decoration: none;
+}
+
+
+body {
+    background-color: rgb(30, 136, 229); /* Color de fondo de toda la página */
+}
+
+.container {
+    background-color: rgb(30, 136, 229);
+}
+
+.link-color {
+    color: #000000;
+    text-decoration: none;
+
+}
+.link-color:hover {
+    color: #767676;
+}
+
+#view-emails{
+    background-color: #C9E3FF;
+    padding: 20px;
+}
