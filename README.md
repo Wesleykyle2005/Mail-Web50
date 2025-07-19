@@ -1,177 +1,167 @@
-# 📬 Mail-Web50 — Cliente Web de Correo Electrónico
+# 📬 Mail-Web50 — Email Web Client
 
-**Mail-Web50** es un cliente de correo electrónico de una sola página (SPA), desarrollado con **Django** y **JavaScript** como parte del curso **CS50's Web Programming with Python and JavaScript (CS50W)**. Incorpora un diseño moderno con **efectos glassmorphism**, y permite enviar, recibir, archivar y responder correos de forma eficiente en una interfaz dinámica y responsiva.
+**Mail-Web50** is a single-page application (SPA) email client built with **Django** and **JavaScript** for **CS50's Web Programming with Python and JavaScript (CS50W)**. It features a modern **glassmorphism** design and allows users to send, receive, archive, and reply to emails in a dynamic, responsive interface.
 
-![Bandeja de entrada con efectos glassmorphism](mail/static/mail/images/inbox.png)
-
----
-
-## ✨ Funcionalidades Principales
-
-### 📧 Cliente de Correo Electrónico
-
-* Envío de correos entre usuarios registrados
-* Visualización de bandejas: Entrada, Enviados y Archivados
-* Lectura detallada de correos individuales
-* Archivado y desarchivado de mensajes recibidos
-* Respuesta rápida con precarga automática de campos (destinatario, asunto, cita)
-* Diferenciación visual entre correos leídos y no leídos
-* Interfaz moderna, responsiva y fluida (SPA)
+![Inbox with glassmorphism effects](mail/static/mail/images/inbox.png)
 
 ---
 
-## 🎨 Estética y Diseño CSS Avanzado
+## ✨ Key Features
 
-### 🧊 Glassmorphism Aplicado
+### 📧 Email Client
 
-* **Barra de navegación translúcida**: `backdrop-filter: blur(10px)`
-* **Menú lateral con opacidad del 40%** y efecto cristal
-* **Botones con animación “shine”** deslizante
-* **Backdrop sin oscurecimiento**: visibilidad total de fondo
-
-![Navbar con efecto glassmorphism abierto](mail/static/mail/images/Nabar_glassmorphism_open.png)
-
-### 🗂 Sistema Jerárquico de Z-Index
-
-* Navbar (`z-index: 1050`): Siempre visible
-* Offcanvas lateral (`z-index: 1045`): Superpuesto al fondo
-* Backdrop (`z-index: 1040`): Clics interceptados sin oscurecer
-
-### 🔍 Estados Visuales Inteligentes
-
-* Correos no leídos: borde azul + fondo con gradiente
-* Correos leídos: borde gris + fondo blanco
-* Animaciones: `fadeIn` combinadas con `translateY` para carga suave
-
-### 🧠 Interacciones CSS Sofisticadas
-
-* Hover en botones: desplazamiento horizontal con efecto shine
-* Hover en tarjetas: elevación sutil + sombra dinámica
-* Transiciones coordinadas (0.3s): experiencia de navegación fluida
-
-### 🧩 Otras Características de Estilo
-
-* Tipografía *Inter* (Google Fonts) con fallback
-* Uso extensivo de variables CSS para consistencia
-* Scrollbar temática personalizada
-* Diseño responsivo adaptado a breakpoint de 768px
-* Integración no intrusiva con **Bootstrap 5**
+* Send emails between registered users
+* View mailboxes: Inbox, Sent, and Archived
+* Read individual emails
+* Archive and unarchive received messages
+* Quick reply with pre-filled fields (recipient, subject, quote)
+* Visual distinction between read and unread emails
+* Modern, responsive, and fluid SPA interface
 
 ---
 
-## 🚀 Instalación y Puesta en Marcha
+## 🎨 Advanced CSS Design
 
-1. Clona el repositorio:
+### 🧊 Glassmorphism
 
+* Translucent navigation bar with `backdrop-filter: blur(10px)`
+* 40% opaque side menu with glass effect
+* Buttons with sliding “shine” animation
+* Clear backdrop without darkening
+
+![Open glassmorphism navbar](mail/static/mail/images/Nabar_glassmorphism_open.png)
+
+### 🗂 Z-Index Hierarchy
+
+* Navbar (`z-index: 1050`): Always visible
+* Side menu (`z-index: 1045`): Overlays background
+* Backdrop (`z-index: 1040`): Intercepts clicks without darkening
+
+### 🔍 Smart Visual States
+
+* Unread emails: Blue border + gradient background
+* Read emails: Gray border + white background
+* Animations: `fadeIn` with `translateY` for smooth loading
+
+### 🧩 Other Styling Features
+
+* *Inter* typography (Google Fonts) with fallback
+* Consistent CSS variables
+* Custom-themed scrollbar
+* Responsive design for 768px breakpoint
+* Non-intrusive **Bootstrap 5** integration
+
+---
+
+## 🚀 Setup and Installation
+
+1. Clone the repository:
    ```bash
    git clone https://github.com/Wesleykyle2005/Mail-Web50
    cd Mail-Web50
    ```
-2. Instala dependencias:
-
+2. Install dependencies:
    ```bash
    pip install django
    ```
-3. Aplica migraciones:
-
+3. Apply migrations:
    ```bash
    python manage.py makemigrations mail
    python manage.py migrate
    ```
-4. Ejecuta el servidor:
-
+4. Run the server:
    ```bash
    python manage.py runserver
    ```
-5. Accede a la aplicación en: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+5. Access the app at: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 ---
 
-## 🧪 Modo de Uso
+## 🧪 How to Use
 
-* Regístrate con cualquier correo y contraseña (todo funciona localmente)
-* Navega entre bandejas desde el menú lateral con efecto glassmorphism
-* Redacta un nuevo correo desde la vista "Compose"
-* Haz clic en un mensaje para leerlo, archivarlo o responder rápidamente
+* Register with any email and password (local functionality)
+* Navigate mailboxes via the glassmorphism side menu
+* Compose emails from the "Compose" view
+* Click messages to read, archive, or reply quickly
 
-![Compositor de emails](mail/static/mail/images/Composer.png)
+![Email composer](mail/static/mail/images/Composer.png)
 
 ---
 
-## 🛠 Requisitos del Sistema
+## 🛠 System Requirements
 
 * **Python 3.x**
-* **Django 3.x** o superior
-* Navegador moderno con soporte para `backdrop-filter` (Chrome, Edge, Safari)
+* **Django 3.x** or higher
+* Modern browser supporting `backdrop-filter` (Chrome, Edge, Safari)
 
 ---
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 Mail-Web50/
-├── mail/                    # Aplicación principal
+├── mail/                    # Main application
 │   ├── static/mail/
-│   │   ├── inbox.js         # Lógica JavaScript SPA
-│   │   └── styles.css       # Estilos CSS (glassmorphism)
+│   │   ├── inbox.js         # SPA JavaScript logic
+│   │   └── styles.css       # CSS styles (glassmorphism)
 │   ├── templates/mail/
-│   │   ├── inbox.html       # Plantilla de bandeja principal
-│   │   └── layout.html      # Plantilla base
-│   ├── models.py            # Modelo Email
-│   ├── views.py             # Vistas y API REST
-│   └── urls.py              # Enrutamiento de la aplicación
-├── project3/                # Configuración del proyecto Django
+│   │   ├── inbox.html       # Main inbox template
+│   │   └── layout.html      # Base template
+│   ├── models.py            # Email model
+│   ├── views.py             # Views and REST API
+│   └── urls.py              # App routing
+├── project3/                # Django project settings
 ```
 
 ---
 
-## 🔌 API REST Endpoints
+## 🔌 REST API Endpoints
 
-* `GET /emails/<mailbox>` — Devuelve emails según la bandeja (`inbox`, `sent`, `archive`)
-* `GET /emails/<email_id>` — Obtiene un correo por ID
-* `POST /emails` — Envía un nuevo correo (`recipients`, `subject`, `body`)
-* `PUT /emails/<email_id>` — Modifica el estado de un correo (`read`, `archived`)
-
----
-
-## ✅ Especificaciones Implementadas
-
-### Funcionalidades del lado del cliente
-
-* Envío de correos validado
-* Renderizado dinámico de bandejas con AJAX
-* Visualización individual de correos con marcado como leído
-* Archivado/desarchivado de correos
-* Respuesta rápida con campos prellenados
-* SPA funcional sin recargas de página
-* Estados visuales diferenciados para lectura
-
-### Aportes CSS únicos
-
-1. Menú lateral sin oscurecimiento visual
-2. Efecto shine animado en botones interactivos
-3. Estados visuales para correos leídos/no leídos
-4. Navbar con visibilidad persistente
-5. Transiciones CSS suaves y coherentes
-6. Scrollbar personalizada con integración temática
-7. Diseño responsivo con compatibilidad móvil total
+* `GET /emails/<mailbox>` — Returns emails by mailbox (`inbox`, `sent`, `archive`)
+* `GET /emails/<email_id>` — Retrieves an email by ID
+* `POST /emails` — Sends a new email (`recipients`, `subject`, `body`)
+* `PUT /emails/<email_id>` — Updates email status (`read`, `archived`)
 
 ---
 
-## 🎨 Paleta de Colores del Proyecto
+## ✅ Implemented Features
 
-* **Primary:** `#2563eb` — Azul moderno
-* **Secondary:** `#64748b` — Gris elegante
-* **Success:** `#10b981` — Verde de confirmación
-* **Warning:** `#f59e0b` — Amarillo advertencia
-* **Error:** `#ef4444` — Rojo error
-* **Glassmorphism Base:** opacidad 40% con desenfoque
+### Client-Side Features
+
+* Validated email sending
+* Dynamic mailbox rendering with AJAX
+* Individual email view with read marking
+* Archive/unarchive emails
+* Quick reply with pre-filled fields
+* SPA functionality without page reloads
+* Visual states for read/unread emails
+
+### Unique CSS Contributions
+
+1. Side menu without visual darkening
+2. Animated “shine” effect on buttons
+3. Visual states for read/unread emails
+4. Persistent navbar visibility
+5. Smooth CSS transitions
+6. Custom scrollbar with theme integration
+7. Fully mobile-compatible responsive design
+
+---
+
+## 🎨 Project Color Palette
+
+* **Primary:** `#2563eb` — Modern blue
+* **Secondary:** `#64748b` — Elegant gray
+* **Success:** `#10b981` — Confirmation green
+* **Warning:** `#f59e0b` — Warning yellow
+* **Error:** `#ef4444` — Error red
+* **Glassmorphism Base:** 40% opacity with blur
 
 ---
 
 ## 📱 Responsive Design
 
-* Breakpoint principal: `768px`
-* Offcanvas lateral móvil: `280px` de ancho
-* Interfaz táctil: botones ≥ 44px
-* Animaciones optimizadas: rendimiento estable en móviles (60 fps)
+* Main breakpoint: `768px`
+* Mobile side menu: `280px` wide
+* Touch-friendly buttons: ≥ 44px
+* Optimized animations for mobile performance (60 fps)
