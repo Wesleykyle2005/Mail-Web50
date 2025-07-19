@@ -1,5 +1,3 @@
-### Versión en Español
-
 # 📬 Mail-Web50 — Cliente Web de Correo Electrónico
 
 **Mail-Web50** es un cliente de correo electrónico de una sola página (SPA) desarrollado con **Django** y **JavaScript** para **CS50's Web Programming with Python and JavaScript (CS50W)**. Presenta un diseño moderno con **efectos glassmorphism** y permite enviar, recibir, archivar y responder correos en una interfaz dinámica y responsiva.
