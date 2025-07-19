@@ -3,107 +3,83 @@
 
 {% block body %}
     
-
-<nav class="navbar bg-body-tertiary fixed-top bg-primary-subtle"> 
+<nav class="navbar custom-navbar fixed-top"> 
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>
-      <a class="navbar-brand" href="#">{{request.user.email}}</a>
-      
-      <div class="offcanvas offcanvas-start w-25 bg-primary-subtle" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                    <button id="inbox" class="btn nav-button" data-bs-dismiss="offcanvas">Inbox</button>
-                </li>
-                <li class="nav-item">
-                    <button id="compose" class="btn nav-button" data-bs-dismiss="offcanvas">Compose</button>
-                </li>
-                <li class="nav-item">
-                    <button id="sent" class="btn nav-button" data-bs-dismiss="offcanvas">Sent</button>
-                </li>
-                <li class="nav-item">
-                    <button id="archived" class="btn nav-button" data-bs-dismiss="offcanvas">Archived</button>
-                </li>
-                <li class="nav-item">
-                    <a href="{% url 'logout' %}" class="btn nav-button link-color">Log Out</a>
-                </li>
-            </ul>
-          
-        </div>
-      </div>
+        </button>
+        <a class="navbar-brand" href="#">{{request.user.email}}</a>
     </div>
-  </nav>
+</nav>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- Offcanvas separado del navbar para mejor control -->
+<div class="offcanvas custom-offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Mail Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button id="inbox" class="nav-button" data-bs-dismiss="offcanvas">
+                    📥 Inbox
+                </button>
+            </li>
+            <li class="nav-item">
+                <button id="compose" class="nav-button" data-bs-dismiss="offcanvas">
+                    ✏️ Compose
+                </button>
+            </li>
+            <li class="nav-item">
+                <button id="sent" class="nav-button" data-bs-dismiss="offcanvas">
+                    📤 Sent
+                </button>
+            </li>
+            <li class="nav-item">
+                <button id="archived" class="nav-button" data-bs-dismiss="offcanvas">
+                    📁 Archived
+                </button>
+            </li>
+            <li class="nav-item mt-4">
+                <a href="{% url 'logout' %}" class="nav-button link-color">
+                    🚪 Log Out
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
 
 <div class="container mt-5 pt-5">
-
     <div id="emails-view">
     </div>
     
     <div id="view-emails" class="w-100 h-100" style="height: 100vh">
-
     </div>
 
     <div id="compose-view">
         <h3>New Email</h3>
         <form id="compose-form">
             <div class="form-group">
-                From: <input disabled class="form-control" value="{{ request.user.email }}">
+                <label for="compose-from">From:</label>
+                <input disabled class="form-control" id="compose-from" value="{{ request.user.email }}">
             </div>
             <div class="form-group">
-                To: <input id="compose-recipients" class="form-control">
+                <label for="compose-recipients">To:</label>
+                <input id="compose-recipients" class="form-control" placeholder="Enter recipient email(s)">
             </div>
             <div class="form-group">
-                <input class="form-control" id="compose-subject" placeholder="Subject">
+                <label for="compose-subject">Subject:</label>
+                <input class="form-control" id="compose-subject" placeholder="Enter subject">
             </div>
-            <textarea  rows="10" class="form-control" id="compose-body" placeholder="Body"></textarea>
-            <input type="submit" class="btn btn-primary"/>
+            <div class="form-group">
+                <label for="compose-body">Message:</label>
+                <textarea rows="10" class="form-control" id="compose-body" placeholder="Enter your message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Email</button>
         </form>
     </div>
-
 </div>
 
-
-
-    
-    
-    
-    
-    
-  
-
-   
-
-    
 {% endblock %}
 
 {% block script %}

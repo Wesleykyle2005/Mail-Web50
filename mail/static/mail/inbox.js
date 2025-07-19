@@ -54,7 +54,7 @@ function load_mailbox(mailbox) {
           <div class="card ">
             <div class="card-body">
               <h5 class="card-title">${email.subject}</h5>
-              <h6 class="card-subtitle">${email.recipients}</h6>
+              <h6 class="card-subtitle">${Array.isArray(email.recipients) ? email.recipients.join(', ') : email.recipients}</h6>
               <p class="card-text"><small class="text-muted">${email.timestamp}</small></p>
               <button class="view-emails-button btn btn-success">View email</button>
               <button class="archive-emails-button btn btn-primary">${email.archived ? 'Unarchive' : 'Archive'}</button>

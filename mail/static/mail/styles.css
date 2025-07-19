@@ -1,45 +1,466 @@
-textarea {
-    min-height: 400px;
+/* Importar fuente moderna de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Variables CSS para colores y estilos consistentes */
+:root {
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary-color: #64748b;
+    --accent-color: #3b82f6;
+    --background-color: #f8fafc;
+    --surface-color: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --border-radius: 8px;
+    --border-radius-lg: 12px;
 }
 
+/* ===== RESET Y ESTILOS BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, var(--background-color) 0%, #e2e8f0 100%);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ===== LAYOUT PRINCIPAL ===== */
+.container {
+    background: transparent;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===== NAVEGACIÓN GLASSMORPHISM ===== */
+.navbar.custom-navbar {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1044;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    color: var(--primary-color) !important;
+    font-size: 1.25rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.navbar-toggler {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-toggler:hover {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-color: var(--accent-color);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2837, 99, 235, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ===== OFFCANVAS GLASSMORPHISM ===== */
+.offcanvas.custom-offcanvas {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    height: 100vh !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 320px !important;
+    max-width: 90vw;
+    z-index: 1045 !important;
+}
+
+.offcanvas.custom-offcanvas.show {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Backdrop transparente para funcionalidad */
+.offcanvas-backdrop,
+.offcanvas-backdrop.show {
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    z-index: 1040 !important;
+}
+
+.offcanvas-header {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+    min-height: 70px;
+}
+
+.offcanvas-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-close {
+    background-color: rgba(100, 116, 139, 0.8);
+    opacity: 0.8;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-close:hover {
+    opacity: 1;
+    background-color: rgba(239, 68, 68, 0.8);
+    transform: scale(1.1);
+}
+
+.offcanvas-body {
+    padding: 1.5rem;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    background: transparent;
+}
+
+/* ===== NAVEGACIÓN INTERNA ===== */
+.navbar-nav {
+    gap: 0.5rem;
+}
+
+.nav-item {
+    width: 100%;
+}
+
+/* Botones de navegación con efecto glass */
 .nav-button {
-    background: none;
-    border: none;
-    color: inherit;
-    padding: 10px;
-    font: inherit;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+    padding: 1rem 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
     cursor: pointer;
     text-decoration: none;
-    border-radius: 0;
-    margin-left: 40px;
+    border-radius: var(--border-radius);
+    width: 100%;
+    text-align: left;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
 }
 
 .nav-button:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* Color de fondo al hacer hover */
-    color: #000000; /* Color del texto al hacer hover */
-    text-decoration: none;
+    background: rgba(37, 99, 235, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-color: rgba(37, 99, 235, 0.3);
+    color: var(--primary-color);
+    transform: translateX(4px);
+    box-shadow: 
+        0 4px 15px rgba(37, 99, 235, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-
-body {
-    background-color: rgb(30, 136, 229); /* Color de fondo de toda la página */
+.nav-button:hover::before {
+    left: 100%;
 }
 
-.container {
-    background-color: rgb(30, 136, 229);
+.nav-button:active {
+    transform: translateX(2px);
+    box-shadow: 
+        0 2px 8px rgba(37, 99, 235, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .link-color {
-    color: #000000;
+    color: var(--text-primary);
     text-decoration: none;
-
+    font-weight: 500;
+    transition: color 0.2s ease;
 }
+
 .link-color:hover {
-    color: #767676;
+    color: var(--primary-color);
 }
 
-#view-emails{
-    background-color: #C9E3FF;
+/* ===== FORMULARIOS ===== */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    font-family: 'Inter', sans-serif;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 12px 16px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background-color: var(--surface-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-control:disabled {
+    background-color: #f8fafc;
+    color: var(--text-secondary);
+    cursor: not-allowed;
+}
+
+textarea {
+    min-height: 400px;
+    font-family: 'Inter', sans-serif;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: all 0.2s ease;
+    background-color: var(--surface-color);
+    box-shadow: var(--shadow-sm);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* ===== BOTONES ===== */
+.btn {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    padding: 8px 16px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-success {
+    background: var(--success-color);
+    color: white;
+}
+
+.btn-success:hover {
+    background: #059669;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #475569;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ===== VISTAS DE EMAIL ===== */
+#view-emails {
+    background: var(--surface-color);
+    border-radius: var(--border-radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    margin-top: 20px;
+}
+
+/* Tarjetas de email */
+.emailBox {
+    margin-bottom: 16px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.emailBox .card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+    overflow: hidden;
+}
+
+.emailBox .card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
+}
+
+.emailBox .card-body {
     padding: 20px;
+}
+
+.emailBox .card-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.emailBox .card-subtitle {
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.emailBox .card-text {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+/* Estados de lectura */
+.emailBox .card.bg-secondary {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%) !important;
+    border-left: 4px solid var(--primary-color);
+}
+
+.emailBox .card.bg-light {
+    background: var(--surface-color) !important;
+    border-left: 4px solid var(--border-color);
+}
+
+/* ===== TIPOGRAFÍA ===== */
+h3 {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== SCROLLBAR PERSONALIZADA ===== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .nav-button {
+        padding: 0.75rem 1rem;
+        font-size: 13px;
+    }
+    
+    .emailBox .card-body {
+        padding: 16px;
+    }
+    
+    #view-emails {
+        padding: 16px;
+    }
+    
+    .offcanvas.custom-offcanvas {
+        width: 280px !important;
+    }
 }
