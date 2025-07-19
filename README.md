@@ -1,5 +1,7 @@
 # 📬 Mail-Web50 — Email Web Client
 
+🗪 README.md en español: [README_ES.md](README_ES.md)
+
 **Mail-Web50** is a single-page application (SPA) email client built with **Django** and **JavaScript** for **CS50's Web Programming with Python and JavaScript (CS50W)**. It features a modern **glassmorphism** design and allows users to send, receive, archive, and reply to emails in a dynamic, responsive interface.
 
 ![Inbox with glassmorphism effects](mail/static/mail/images/inbox.png)
